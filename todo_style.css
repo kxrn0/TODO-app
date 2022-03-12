@@ -1,0 +1,66 @@
+.folders {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 50px;
+    /* background: blue; */
+}
+
+.folder {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.folder button {
+    width: 75px;
+    height: 75px;
+    background-image: url("images/folder.png");
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.folder button:hover {
+    background-color: rgb(245, 195, 195);
+}
+
+.folder button:active {
+    background-color: rgb(235, 185, 183);
+    transform: scale(.975);
+}
+
+.folder input[type="text"], .folder p {
+    text-align: center;
+    width: 100px;
+    margin-top: 5px;
+    padding: 5px;
+    background: rgb(188, 215, 255);
+    border: none;
+    border-radius: 5px;
+}
+
+.add-folder button {
+    width: 75px;
+    height: 75px;
+    background-image: url("images/add_folder.png");
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-folder button:hover {
+    background-color: rgb(235, 202, 183);
+}
+
+.add-folder button:active {
+    background-color: rgb(223, 186, 165);
+    transform: scale(.975);
+}
+
+@media screen and (max-width: 500px) {
+    .folders {
+        gap: 20px;
+    }
+}

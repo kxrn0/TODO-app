@@ -11,7 +11,7 @@ body {
 }
 
 .nav-bar ul {
-    /* padding: px; */
+    position: relative;
     display: flex;
     list-style: none;
     background: rgb(233, 109, 92);
@@ -38,3 +38,35 @@ body {
     transform: scale(.99);
 }
 
+.nav-bar input[type="checkbox"] {
+    position: absolute;
+    right: 25px;
+}
+
+#focused {
+    background: rgb(241, 240, 163);
+    padding: 12px 5px;
+}
+
+#focused:hover {
+    background: rgb(217, 228, 153);
+}
+
+#focused:active {
+    background: rgb(195, 218, 143);
+}
+
+@media screen and (max-width: 500px) {
+    .nav-bar button {
+        font-size: 13px;
+        width: auto;
+    }
+
+    .nav-bar li {
+        margin: 5px;
+    }
+
+    .nav-bar input[type="checkbox"] {
+        right: 10px;
+    }
+}

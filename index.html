@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="base_style.css">
+    <link rel="stylesheet" href="todo_style.css">
     <title>Todo App</title>
+
+    <!-- 
+        folder.png : <a href="https://www.flaticon.com/free-icons/folder" title="folder icons">Folder icons created by Freepik - Flaticon</a>
+        add_folder.png : <a href="https://www.flaticon.com/free-icons/user-interface" title="user interface icons">User interface icons created by Freepik - Flaticon</a>
+     -->
 </head>
 <body>
     <!-- 
@@ -24,18 +30,40 @@
      -->
 
      <!-- 
-         What should be expected from a basic todo-app?
+         What should be expected from a basic todo app?
+         First of all I want to add a simple feature that I feel has been missing from other similar apps; folders.
+         I want the homescreen of the todo section to contain folders on which the todos will be stored.
+         There will be one layer to the folders, so the user won't be able to create folders within folders, at lest
+         on this version.
+         If there are no folders on the screen, a message will be printed at the bottom prompting the user to create a folder.
       -->
 
      <nav class="nav-bar">
          <ul>
-             <li><button class="todo">TODO</button></li>
-             <li><button class="thing-counter">THING COUNTER</button></li>
+             <li><button class="todo"">TODO</button></li>
+             <li><button class="thing-counter" id="focused">THING COUNTER</button></li>
              <li><button class="habit-tracker">HABIT TRACKER</button></li>
+             <li><input type="checkbox"></li>
          </ul>
      </nav>
      <main class="main-section">
-
+        <div class="todo-container">
+            <div class="folders">
+                <div class="folder">
+                    <button></button>
+                    <input type="text" value="Family">
+                </div>
+                <div class="folder">
+                    <button></button>
+                    <input type="text" value="Business">
+                </div>
+                <div class="folder">
+                    <button></button>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="add-folder"><button></button></div>
+            </div>
+        </div>
      </main>
 </body>
 </html>
