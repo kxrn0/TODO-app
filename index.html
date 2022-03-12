@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +13,11 @@
     <!-- 
         folder.png : <a href="https://www.flaticon.com/free-icons/folder" title="folder icons">Folder icons created by Freepik - Flaticon</a>
         add_folder.png : <a href="https://www.flaticon.com/free-icons/user-interface" title="user interface icons">User interface icons created by Freepik - Flaticon</a>
+        rubbish_bin.png : <a href="https://www.flaticon.com/free-icons/rubbish-bin" title="rubbish bin icons">Rubbish bin icons created by Freepik - Flaticon</a>
+        check.png : <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Freepik - Flaticon</a>
      -->
 </head>
+
 <body>
     <!-- 
         I want to create an app that has three basic functionalities; todo app, thing counter, and habit tracker.
@@ -29,7 +33,7 @@
         pressed will load whichever app they are associated with.
      -->
 
-     <!-- 
+    <!-- 
          What should be expected from a basic todo app?
          First of all I want to add a simple feature that I feel has been missing from other similar apps; folders.
          I want the homescreen of the todo section to contain folders on which the todos will be stored.
@@ -38,32 +42,52 @@
          If there are no folders on the screen, a message will be printed at the bottom prompting the user to create a folder.
       -->
 
-     <nav class="nav-bar">
-         <ul>
-             <li><button class="todo"">TODO</button></li>
-             <li><button class="thing-counter" id="focused">THING COUNTER</button></li>
-             <li><button class="habit-tracker">HABIT TRACKER</button></li>
-             <li><input type="checkbox"></li>
-         </ul>
-     </nav>
-     <main class="main-section">
+    <!-- 
+          Now that I've finished the design of the folders, I will now have to move on to the todos.
+          I think a todo should have a name, description, and checkbox that indicates if it has been done.
+          A todo should also have a delete button.
+       -->
+
+    <nav class="nav-bar">
+        <ul>
+            <li><button class="nav-todo" id="focused">TODO</button></li>
+            <li><button class="nav-thing-counter">THING COUNTER</button></li>
+            <li><button class="nav-habit-tracker">HABIT TRACKER</button></li>
+            <li><input type="checkbox"></li>
+        </ul>
+    </nav>
+    <main class="main-section">
         <div class="todo-container">
-            <div class="folders">
-                <div class="folder">
-                    <button></button>
-                    <input type="text" value="Family">
+            <div class="todos">
+                <div class="todo unchecked">
+                    <h2>Lorem Ipsum Dolor!</h2>
+                    <textarea>This is a Lorem i Molestias, cupiditate? string</textarea>
+                    <div class="controls"><div class="check-wrapper"><input type="checkbox" id="checkbox_0"><label for="checkbox_0">Done!</label></div><button></button></div>
                 </div>
-                <div class="folder">
-                    <button></button>
-                    <input type="text" value="Business">
+                <div class="todo unchecked">
+                    <h2>Lorem Ipsum Dolor!</h2>
+                    <textarea>This is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate? string</textarea>
+                    <div class="controls"><div class="check-wrapper"><input type="checkbox" id="checkbox_2"><label for="checkbox_2">Done!</label></div><button></button></div>
                 </div>
-                <div class="folder">
-                    <button></button>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                <div class="todo checked">
+                    <h2>Lorem Ipsum Dolor!</h2>
+                    <textarea>This is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate? string</textarea>
+                    <div class="controls"><div class="check-wrapper"><input type="checkbox" id="checkbox_7" checked><label for="checkbox_7">Done!</label></div><button></button></div>
                 </div>
-                <div class="add-folder"><button></button></div>
+                <div class="todo checked">
+                    <h2>Lorem Ipsum Dolor!</h2>
+                    <textarea>This is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate? string</textarea>
+                    <div class="controls"><div class="check-wrapper"><input type="checkbox" id="checkbox_5" checked><label for="checkbox_5">Done!</label></div><button></button></div>
+                </div>
+                <div class="todo checked">
+                    <h2>Lorem Ipsum Dolor!</h2>
+                    <textarea>This is a Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate? string</textarea>
+                    <div class="controls"><div class="check-wrapper"><input type="checkbox" id="checkbox_8" checked><label for="checkbox_8">Done!</label></div><button></button></div>
+                </div>
+                
             </div>
         </div>
-     </main>
+    </main>
 </body>
+
 </html>

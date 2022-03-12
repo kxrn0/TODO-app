@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     padding: 10px;
     gap: 50px;
-    /* background: blue; */
 }
 
 .folder {
@@ -59,8 +58,133 @@
     transform: scale(.975);
 }
 
-@media screen and (max-width: 500px) {
+.todo {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 700px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+.todo textarea {
+    width: 600px;
+    resize: vertical;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.todo .controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.todo .controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    background-image: url("images/rubbish-bin.png");
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.todo .controls button:hover {
+    background-color: rgb(255, 132, 110);
+}
+
+.todo .controls button:active {
+    background-color: rgb(236, 105, 96);
+    transform: scale(.975);
+}
+
+.todo .controls input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: nobe;
+    align-self: center;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    border: 1px dotted red;
+    background: rgb(255, 250, 250);
+}
+
+.todo .controls input[type="checkbox"]:checked {
+    background: rgb(31, 233, 13);
+}
+
+.todo .controls input[type="checkbox"]:checked::after {
+    content: url("images/checkmark.png");
+}
+
+.todo .controls .check-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+}
+
+/* ... */
+
+.unchecked {
+    background: rgb(193, 206, 236);
+}
+
+.unchecked h2 {
+    background: rgb(169, 243, 243);
+}
+
+.unchecked textarea {
+    background: rgb(233, 241, 227);
+}
+
+/* ... */
+
+.checked {
+    background: rgb(187, 199, 207);
+}
+
+.checked h2 {
+    background: rgb(153, 171, 173);
+    text-decoration: line-through;
+}
+
+.checked textarea {
+    background: azure;
+}
+
+@media screen and (max-width: 700px) {
     .folders {
         gap: 20px;
+    }
+
+    .todo {
+        width: 300px;
+    }
+
+    .todo h2 {
+        max-width: 200px;
+        font-size: 1.25rem;
+    }
+
+    .todo textarea {
+        width: 250px;
+        min-height: 4rem; 
     }
 }

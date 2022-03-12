@@ -58,7 +58,7 @@ body {
 
 @media screen and (max-width: 500px) {
     .nav-bar button {
-        font-size: 13px;
+        font-size: .75rem;
         width: auto;
     }
 
