@@ -1,0 +1,40 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+body {
+    background: rgb(194, 243, 227);
+    font-family: Helvetica;
+}
+
+.nav-bar ul {
+    /* padding: px; */
+    display: flex;
+    list-style: none;
+    background: rgb(233, 109, 92);
+}
+
+.nav-bar li {
+    margin: 15px;
+}
+
+.nav-bar button {
+    width: 150px;
+    padding: 10px 5px;
+    background: rgb(163, 241, 195);
+    border: none;
+    border-radius: 5px;
+}
+
+.nav-bar button:hover {
+    background: rgb(125, 233, 172);
+}
+
+.nav-bar button:active {
+    background: rgb(110, 211, 155);
+    transform: scale(.99);
+}
+
