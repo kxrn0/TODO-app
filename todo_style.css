@@ -1,3 +1,92 @@
+.todo-container {
+    position: relative;
+    margin-top: 100px;
+}
+
+.delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(183, 201, 226, .3);
+    z-index: 3;
+}
+
+.modal-content {
+    margin: 100px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgb(168, 185, 231);
+    width: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.modal-content .delete-button {
+    top: 5px;
+    right: 5px;
+}
+
+.modal-content .message {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-content .delete-name {
+    background: azure;
+    margin: 0 auto;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    overflow-wrap: break-word;
+}
+
+.modal-content .modal-buttons {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-buttons button {
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.yes-delete {
+    background: rgb(255, 151, 120);
+}
+
+.yes-delete:hover {
+    background: rgb(250, 126, 120);
+}
+
+.yes-delete:active {
+    background: rgb(228, 115, 107);
+    transform: scale(.975);
+}
+
+.no-delete {
+    background: rgb(176, 230, 95);
+}
+
+.no-delete:hover {
+    background: rgb(136, 220, 90);
+}
+
+.no-delete:active {
+    background: rgb(125, 210, 90);
+    transform: scale(.975);
+}
+
 .folders {
     display: flex;
     flex-wrap: wrap;
@@ -10,9 +99,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-.folder button {
+.folder .enter-folder {
     width: 75px;
     height: 75px;
     background-image: url("images/folder.png");
@@ -21,13 +111,35 @@
     border-radius: 5px;
 }
 
-.folder button:hover {
+.folder .enter-folder:hover {
     background-color: rgb(245, 195, 195);
 }
 
-.folder button:active {
+.folder .enter-folder:active {
     background-color: rgb(235, 185, 183);
     transform: scale(.975);
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    background-image: url("images/delete.png");
+    background-size: cover;
+    border: none;
+    z-index: 1;
+}
+
+.delete-button:hover {
+    filter: saturate(500%);
+}
+
+.delete-button:active {
+    filter: invert(10%);
+    transform: scale(.95);
 }
 
 .folder input[type="text"], .folder p {
@@ -38,6 +150,10 @@
     background: rgb(188, 215, 255);
     border: none;
     border-radius: 5px;
+}
+
+.folder p {
+    overflow-wrap:break-word;
 }
 
 .add-folder button {
@@ -56,6 +172,11 @@
 .add-folder button:active {
     background-color: rgb(223, 186, 165);
     transform: scale(.975);
+}
+
+.todos {
+    position: relative;
+    min-height: 100vh;
 }
 
 .todo {
@@ -78,13 +199,33 @@
     max-width: 500px;
 }
 
-.todo textarea {
+.todo input[type="text"] {
+    background: azure;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.todo textarea, .todo p {
     width: 600px;
-    resize: vertical;
     padding: 5px;
     border-radius: 5px;
     border: none;
     margin-bottom: 20px;
+}
+
+.todo p {
+    background: rgb(233, 241, 227);
+    min-height: 3rem;
+    text-align: start;
+    overflow-wrap: break-word;
+}
+
+.todo textarea {
+    resize: vertical;
     overflow: auto;
 }
 
@@ -169,7 +310,56 @@
     background: azure;
 }
 
+.footer {
+    position: sticky;
+    bottom: 0;
+    background: rgb(245, 123, 107);
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.footer .add-todo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("images/add.png");
+    background-size: cover;
+}
+
+.footer .add-todo:hover {
+    filter: saturate(200%);
+}
+
+.footer .add-todo:active {
+    filter: invert(10%);
+    transform: scale(.975);
+}
+
+.footer .go-back {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("images/back-arrow.png");
+    background-size: cover;
+}
+
+.footer .go-back:hover {
+    filter: saturate(200%);
+}
+
+.footer .go-back:active {
+    filter: invert(10%);
+    transform: scale(.975);
+}
+
 @media screen and (max-width: 700px) {
+    .todo-container {
+        margin-top: 60px;
+    }
+
     .folders {
         gap: 20px;
     }
@@ -183,8 +373,28 @@
         font-size: 1.25rem;
     }
 
-    .todo textarea {
+    .todo input[type="text"] {
+        max-width: 200px;
+    }
+
+    .todo textarea, .todo p {
         width: 250px;
         min-height: 4rem; 
+    }
+
+    .footer .add-todo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer .go-back {
+        width: 50px;
+        height: 50px;
+    }
+
+    .modal-content {
+        border-radius: 5px;
+        width: 300px;
+        gap: 5px;
     }
 }
