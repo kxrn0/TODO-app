@@ -89,7 +89,6 @@ const todoObj = (
                     check.id = id;
                     label.setAttribute("for", id)
 
-
                     todo.append(todoNameInput);
                     todo.append(todoDescriptionTextarea);
                     todoControls.append(checkWrapper);
@@ -98,6 +97,7 @@ const todoObj = (
                     todoControls.append(deleteTodo);
                     todo.append(todoControls);
                     todosContainer.append(todo);
+                    todo.scrollIntoView({ block : "center"});
 
                     todoNameInput.focus();
                     todos.push(todo);
@@ -131,6 +131,14 @@ const todoObj = (
                     check.addEventListener("click", () => {
                         todo.classList.toggle("checked");
                         todo.classList.toggle("unchecked");
+                        todo.parentElement.removeChild(todo);
+                        if (todo.classList.contains("checked")) {
+                            todosContainer.append(todo);
+                        }
+                        else {
+                            todosContainer.prepend(todo);
+                        }
+                        todo.scrollIntoView({ block : "center", behavior : "smooth" });
                     });
 
                     deleteTodo.addEventListener("click", () => {
