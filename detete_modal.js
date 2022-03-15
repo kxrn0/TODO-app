@@ -1,4 +1,4 @@
-export const deleteModal = (
+export const deleteModalObj = (
     () => {
         const modal = document.createElement("div");
         const modalContainer = document.createElement("div");
