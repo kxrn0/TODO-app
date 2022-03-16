@@ -9,7 +9,7 @@ export const deleteModalObj = (
         const buttonsContainer = document.createElement("div");
         const yesButton = document.createElement("button");
         const noButton = document.createElement("button");
-        let elementToDelete;
+        let elementToDelete, elementsArray;
 
         modal.classList.add("delete-modal");
         modalContainer.classList.add("modal-content");
@@ -37,6 +37,7 @@ export const deleteModalObj = (
 
         yesButton.addEventListener("click", () => {
             elementToDelete.parentElement.removeChild(elementToDelete);
+            elementsArray.splice(elementsArray.indexOf(elementToDelete), 1);
             close_modal();
         });
 
@@ -48,16 +49,23 @@ export const deleteModalObj = (
             close_modal();
         });
 
-        function delete_element(name, element, container) {
+        function delete_element(name, element, container, array) {
             container.append(modal);
             elementName.innerText = `${name}?`;
             elementToDelete = element;
+            elementsArray = array;
         }
 
         function close_modal() {
             elementToDelete = '';
+            elementsArray = [];
             modal.parentElement.removeChild(modal);
         }
+
+        document.addEventListener("click", event => {
+            if (!event.target.closest(".modal-content") && !event.target.closest(".delete-folder") && !event.target.closest(".controls > button") && elementToDelete)
+                close_modal();
+        });
 
         return { delete_element };
     }

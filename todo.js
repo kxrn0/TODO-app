@@ -1,4 +1,4 @@
-import { deleteModalObj } from "./detete_modal.js";
+import { deleteModalObj } from "./delete_modal.js";
 
 export const todoObj = (
     () => {
@@ -148,8 +148,7 @@ export const todoObj = (
                     })
                 });
 
-                foldersContainer.removeChild(addFolderDiv);
-                foldersContainer.append(folderContainer);
+                addFolderDiv.replaceWith(folderContainer);
                 foldersContainer.append(addFolderDiv);
 
                 folderName.addEventListener("click", () => {
@@ -158,14 +157,16 @@ export const todoObj = (
                     inputName.type = "text";
                     inputName.value = folderName.innerText;
 
-                    folderContainer.removeChild(folderName);
-                    folderContainer.append(inputName);
+                    // folderContainer.removeChild(folderName);
+                    // folderContainer.append(inputName);
+                    folderName.replaceWith(inputName);
                     inputName.focus();
 
                     inputName.addEventListener("focusout", () => {
                         folderName.innerText = inputName.value ? inputName.value : "folder";
-                        folderContainer.removeChild(inputName);
-                        folderContainer.append(folderName);
+                        // folderContainer.removeChild(inputName);
+                        // folderContainer.append(folderName);
+                        inputName.replaceWith(folderName);
                     });
 
                     document.addEventListener("keydown", event => {

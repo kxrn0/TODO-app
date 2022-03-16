@@ -1,8 +1,8 @@
-import { deleteModalObj } from "./detete_modal.js";
+import { deleteModalObj } from "./delete_modal.js";
 
-export const todoObj = (
+export const thingsCounterObj = (
     () => {
-        const todoContainer = document.createElement("div");
+        const thingsContainer = document.createElement("div");
         const foldersContainer = document.createElement("div");
         const addFolderDiv = document.createElement("div");
         const addFolderButton = document.createElement("button");
@@ -10,12 +10,12 @@ export const todoObj = (
         const folders = [];
 
         function init() {
-            todoContainer.classList.add("todo-container");
+            thingsContainer.classList.add("todo-container");
             foldersContainer.classList.add("folders");
             addFolderDiv.classList.add("add-folder");
 
             foldersContainer.append(addFolderDiv);
-            todoContainer.append(foldersContainer);
+            thingsContainer.append(foldersContainer);
             addFolderDiv.append(addFolderButton);
 
             addFolderButton.addEventListener("click", () => {
@@ -28,8 +28,8 @@ export const todoObj = (
                 const footerGoBack = document.createElement("button");
                 const footerAdd = document.createElement("button");
 
-                const todosContainer = document.createElement("div");
-                const todos = [];
+                const thingsSubContainer = document.createElement("div");
+                const things = [];
 
                 folderContainer.classList.add("folder");
                 deleteFolder.classList.add("delete-folder");
@@ -40,7 +40,7 @@ export const todoObj = (
                 footerGoBack.classList.add("go-back");
                 footerAdd.classList.add("add-todo");
 
-                todosContainer.classList.add("todos");
+                //thingsSubContainer.classList.add("");
 
                 folderContainer.append(deleteFolder);
                 folderContainer.append(enterFolder);
@@ -52,104 +52,104 @@ export const todoObj = (
                 footer.append(footerAdd);
 
                 footerGoBack.addEventListener("click", () => {
-                    todoContainer.innerHTML = '';
-                    todoContainer.append(foldersContainer);
+                    thingsContainer.innerHTML = '';
+                    thingsContainer.append(foldersContainer);
                 });
 
                 footerAdd.addEventListener("click", () => {
-                    const todo = document.createElement("div");
-                    const todoNameInput = document.createElement("input");
-                    const todoNameH2 = document.createElement("h2");
-                    const todoDescriptionTextarea = document.createElement("textarea");
-                    const todoDescriptionParag = document.createElement("p");
-                    const todoControls = document.createElement("div");
-                    const checkWrapper = document.createElement("div");
-                    const check = document.createElement("input");
-                    const label = document.createElement("label");
-                    const deleteTodo = document.createElement("button");
-                    let id;
+                    // const todo = document.createElement("div");
+                    // const todoNameInput = document.createElement("input");
+                    // const todoNameH2 = document.createElement("h2");
+                    // const todoDescriptionTextarea = document.createElement("textarea");
+                    // const todoDescriptionParag = document.createElement("p");
+                    // const todoControls = document.createElement("div");
+                    // const checkWrapper = document.createElement("div");
+                    // const check = document.createElement("input");
+                    // const label = document.createElement("label");
+                    // const deleteTodo = document.createElement("button");
+                    // let id;
 
-                    todo.classList.add("todo");
-                    todo.classList.add("unchecked");
-                    todoNameInput.setAttribute("type", "text");
-                    todoControls.classList.add("controls");
-                    checkWrapper.classList.add("check-wrapper");
-                    todoNameInput.setAttribute("placeholder", "Todo : ");
-                    todoDescriptionTextarea.setAttribute("placeholder", "Description");
-                    check.type = "checkbox";
-                    label.innerText = "Done!";
+                    // todo.classList.add("todo");
+                    // todo.classList.add("unchecked");
+                    // todoNameInput.setAttribute("type", "text");
+                    // todoControls.classList.add("controls");
+                    // checkWrapper.classList.add("check-wrapper");
+                    // todoNameInput.setAttribute("placeholder", "Todo : ");
+                    // todoDescriptionTextarea.setAttribute("placeholder", "Description");
+                    // check.type = "checkbox";
+                    // label.innerText = "Done!";
 
-                    id = `check_${Math.floor(Math.random() * 1e6)}`;
-                    for (let todoElem of todos)
-                        while (todoElem.querySelector(`#${id}`))
-                            id = `check_${Math.floor(Math.random() * 1e6)}`;
-                    check.id = id;
-                    label.setAttribute("for", id)
+                    // id = `check_${Math.floor(Math.random() * 1e6)}`;
+                    // for (let todoElem of todos)
+                    //     while (todoElem.querySelector(`#${id}`))
+                    //         id = `check_${Math.floor(Math.random() * 1e6)}`;
+                    // check.id = id;
+                    // label.setAttribute("for", id)
 
-                    todo.append(todoNameInput);
-                    todo.append(todoDescriptionTextarea);
-                    todoControls.append(checkWrapper);
-                    checkWrapper.append(check);
-                    checkWrapper.append(label);
-                    todoControls.append(deleteTodo);
-                    todo.append(todoControls);
-                    todosContainer.append(todo);
-                    todo.scrollIntoView({ block : "center"});
+                    // todo.append(todoNameInput);
+                    // todo.append(todoDescriptionTextarea);
+                    // todoControls.append(checkWrapper);
+                    // checkWrapper.append(check);
+                    // checkWrapper.append(label);
+                    // todoControls.append(deleteTodo);
+                    // todo.append(todoControls);
+                    // thingsSubContainer.append(todo);
+                    // todo.scrollIntoView({ block : "center"});
 
-                    todoNameInput.focus();
-                    todos.push(todo);
+                    // todoNameInput.focus();
+                    // todos.push(todo);
 
-                    todoNameInput.addEventListener("focusout", () => {
-                        todoNameH2.innerText = todoNameInput.value ? todoNameInput.value : "TODO";
-                        todoNameInput.replaceWith(todoNameH2);
-                    });
+                    // todoNameInput.addEventListener("focusout", () => {
+                    //     todoNameH2.innerText = todoNameInput.value ? todoNameInput.value : "TODO";
+                    //     todoNameInput.replaceWith(todoNameH2);
+                    // });
 
-                    todoNameH2.addEventListener("click", () => {
-                        if (!check.checked) {
-                            todoNameInput.value = todoNameH2.innerText;
-                            todoNameH2.replaceWith(todoNameInput);
-                            todoNameInput.focus();
-                        }
-                    });
+                    // todoNameH2.addEventListener("click", () => {
+                    //     if (!check.checked) {
+                    //         todoNameInput.value = todoNameH2.innerText;
+                    //         todoNameH2.replaceWith(todoNameInput);
+                    //         todoNameInput.focus();
+                    //     }
+                    // });
 
-                    todoDescriptionTextarea.addEventListener("focusout", () => {
-                        todoDescriptionParag.innerText = todoDescriptionTextarea.value;
-                        todoDescriptionTextarea.replaceWith(todoDescriptionParag);
-                    });
+                    // todoDescriptionTextarea.addEventListener("focusout", () => {
+                    //     todoDescriptionParag.innerText = todoDescriptionTextarea.value;
+                    //     todoDescriptionTextarea.replaceWith(todoDescriptionParag);
+                    // });
 
-                    todoDescriptionParag.addEventListener("click", () => {
-                        if (!check.checked) {
-                            todoDescriptionTextarea.value = todoDescriptionParag.innerText;
-                            todoDescriptionParag.replaceWith(todoDescriptionTextarea);
-                            todoDescriptionTextarea.focus();
-                        }
-                    });
+                    // todoDescriptionParag.addEventListener("click", () => {
+                    //     if (!check.checked) {
+                    //         todoDescriptionTextarea.value = todoDescriptionParag.innerText;
+                    //         todoDescriptionParag.replaceWith(todoDescriptionTextarea);
+                    //         todoDescriptionTextarea.focus();
+                    //     }
+                    // });
 
-                    check.addEventListener("click", () => {
-                        todo.classList.toggle("checked");
-                        todo.classList.toggle("unchecked");
-                        todo.parentElement.removeChild(todo);
-                        if (todo.classList.contains("checked")) {
-                            todosContainer.append(todo);
-                        }
-                        else {
-                            todosContainer.prepend(todo);
-                        }
-                        todo.scrollIntoView({ block : "center", behavior : "smooth" });
-                    });
+                    // check.addEventListener("click", () => {
+                    //     todo.classList.toggle("checked");
+                    //     todo.classList.toggle("unchecked");
+                    //     todo.parentElement.removeChild(todo);
+                    //     if (todo.classList.contains("checked")) {
+                    //         thingsSubContainer.append(todo);
+                    //     }
+                    //     else {
+                    //         thingsSubContainer.prepend(todo);
+                    //     }
+                    //     todo.scrollIntoView({ block : "center", behavior : "smooth" });
+                    // });
 
-                    deleteTodo.addEventListener("click", () => {
-                        deleteModalObj.delete_element(todoNameH2.innerText, todo, todoContainer, todos);
-                    });
+                    // deleteTodo.addEventListener("click", () => {
+                    //     deleteModalObj.delete_element(todoNameH2.innerText, todo, thingsContainer, todos);
+                    // });
 
-                    document.addEventListener("keydown", event => {
-                        if (event.key == "Enter" && document.activeElement == todoNameInput)
-                            document.activeElement.blur();
-                    })
+                    // document.addEventListener("keydown", event => {
+                    //     if (event.key == "Enter" && document.activeElement == todoNameInput)
+                    //         document.activeElement.blur();
+                    // })
+                    console.log("shalom");
                 });
 
-                foldersContainer.removeChild(addFolderDiv);
-                foldersContainer.append(folderContainer);
+                addFolderDiv.replaceWith(folderContainer);
                 foldersContainer.append(addFolderDiv);
 
                 folderName.addEventListener("click", () => {
@@ -175,28 +175,28 @@ export const todoObj = (
                 });
 
                 deleteFolder.addEventListener("click", () => {
-                    deleteModalObj.delete_element(folderName.innerText, folderContainer, todoContainer, folders);
+                    deleteModalObj.delete_element(folderName.innerText, folderContainer, thingsContainer, folders);
                 })
 
                 enterFolder.addEventListener("click", () => {
-                    todoContainer.innerHTML = '';
-                    todoContainer.append(todosContainer);
-                    todoContainer.append(footer);
+                    thingsContainer.innerHTML = '';
+                    thingsContainer.append(thingsSubContainer);
+                    thingsContainer.append(footer);
                 });
             });
         }
 
         function append_to_element(element) {
             element.innerHTML = '';
-            element.append(todoContainer);
+            element.append(thingsContainer);
         }
 
-        function switch_to_todo(main) {
+        function switch_to_things_counter(main) {
             append_to_element(main);
         }
 
         init();
 
-        return { switch_to_todo }
+        return { switch_to_things_counter }
     }
 )();

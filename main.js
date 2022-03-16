@@ -1,4 +1,5 @@
 import { todoObj } from "./todo.js";
+import { thingsCounterObj } from "./thing_counter.js";
 
 const navTodo = document.querySelector(".nav-todo");
 const navThingCounter = document.querySelector(".nav-thing-counter");
@@ -13,6 +14,7 @@ navTodo.addEventListener("click", () => {
 });
 
 navThingCounter.addEventListener("click", () => {
+    thingsCounterObj.switch_to_things_counter(mainSection);
     navHabitTracker.id = '';
     navTodo.id = '';
     navThingCounter.id = "focused";
