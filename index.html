@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="base_style.css">
     <link rel="stylesheet" href="todo_style.css">
+    <link rel="stylesheet" href="things_style.css">
     <script src="main.js" type="module" defer></script>
     <title>Todo App</title>
 
@@ -19,6 +20,9 @@
         plus.png : <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a>
         back-arrow.png : <a href="https://www.flaticon.com/free-icons/return" title="return icons">Return icons created by Freepik - Flaticon</a>
         delete.png : <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Freepik - Flaticon</a>
+        pencil.png : <a href="https://www.flaticon.com/free-icons/pencil" title="pencil icons">Pencil icons created by Freepik - Flaticon</a>
+        plus.png : <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a>
+        minus.png : <a href="https://www.flaticon.com/free-icons/minus" title="minus icons">Minus icons created by Freepik - Flaticon</a>
      -->
 </head>
 
@@ -33,10 +37,40 @@
     </nav>
     <main class="main-section">
         <div class="thing-container">
-            <!-- 
-                I think it would be better to componetize folders so that I can use the same codebase for the folders for all three apps.
-             -->
+            <div class="things-sub-container">
+                <div class="thing">
+                    <div class="left">
+                        <div class="title-wrapper">
+                            <h2>push ups, 10 each set</h2>
+                        </div>
+                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                        </div>
+                    </div>
+                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                </div>
+                <div class="thing">
+                    <div class="left">
+                        <div class="title-wrapper">
+                            <h2>Dumbbell floor presses, 10 each set, 30lb weight</h2>
+                        </div>
+                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                        </div>
+                    </div>
+                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                </div>
+                <div class="thing">
+                    <div class="left">
+                        <div class="title-wrapper">
+                            <h2>cawfee</h2>
+                        </div>
+                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                        </div>
+                    </div>
+                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                </div>
+            </div>
         </div>
     </main>
 </body>
+
 </html>

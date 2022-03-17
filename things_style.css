@@ -1,0 +1,141 @@
+.thing-container {
+    position: relative;
+    padding-top: 100px;
+}
+
+.things-sub-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+    padding: 20px;
+}
+
+.thing {
+    width: 500px;
+    height: 120px;
+    background: rgb(250, 203, 141);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.thing .left {
+    display: flex;
+    gap: 10px;
+}
+
+.thing .left .title-wrapper {
+    height: 90px;
+    background: rgb(234, 238, 185);
+    align-self: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.thing .left .title-wrapper h2 {
+    overflow-wrap: break-word;
+    width: 150px;
+    padding: 5px;
+}
+
+.thing .inc-dec {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.thing .inc-dec button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.thing .inc-dec .plus {
+    background-image : url("images/plus.png ");
+}
+
+.thing .inc-dec .minus {
+    background-image: url("images/minus.png");
+}
+
+.thing .inc-dec span {
+    background: rgb(227, 238, 212);
+    font-size: 1.5rem;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.thing .modify-delete {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.thing .modify-delete button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.thing .modify-delete .edit {
+    background-image: url("images/pencil.png");
+}
+
+.thing .modify-delete .delete {
+    background-image: url("images/rubbish-bin.png");
+}
+
+.thing button:hover {
+    background-color: rgb(10, 50, 100, .1);
+}
+
+.thing button:active {
+    background-color: rgb(0, 0, 100, .15);
+    transform: scale(.97);
+}
+
+@media screen and (max-width: 700px) {
+    .thing-container {
+        padding-top: 60px;
+    }
+
+    .things-sub-container {
+        gap: 10px;
+    }
+
+    .thing .left .title-wrapper {
+        width: 120px;
+        height: 80px;
+        font-size: 1rem;
+    }
+
+    .thing {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .thing .left {
+        justify-content: space-around;
+    }
+
+    .thing .modify-delete {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: space-around;
+    }
+}

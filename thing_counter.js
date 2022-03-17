@@ -10,7 +10,7 @@ export const thingsCounterObj = (
         const folders = [];
 
         function init() {
-            thingsContainer.classList.add("todo-container");
+            thingsContainer.classList.add("thing-container");
             foldersContainer.classList.add("folders");
             addFolderDiv.classList.add("add-folder");
 
@@ -40,7 +40,7 @@ export const thingsCounterObj = (
                 footerGoBack.classList.add("go-back");
                 footerAdd.classList.add("add-todo");
 
-                //thingsSubContainer.classList.add("");
+                thingsSubContainer.classList.add("things-sub-container");
 
                 folderContainer.append(deleteFolder);
                 folderContainer.append(enterFolder);
@@ -54,99 +54,11 @@ export const thingsCounterObj = (
                 footerGoBack.addEventListener("click", () => {
                     thingsContainer.innerHTML = '';
                     thingsContainer.append(foldersContainer);
+                    thingsContainer.parentElement.removeChild(footer)
                 });
 
                 footerAdd.addEventListener("click", () => {
-                    // const todo = document.createElement("div");
-                    // const todoNameInput = document.createElement("input");
-                    // const todoNameH2 = document.createElement("h2");
-                    // const todoDescriptionTextarea = document.createElement("textarea");
-                    // const todoDescriptionParag = document.createElement("p");
-                    // const todoControls = document.createElement("div");
-                    // const checkWrapper = document.createElement("div");
-                    // const check = document.createElement("input");
-                    // const label = document.createElement("label");
-                    // const deleteTodo = document.createElement("button");
-                    // let id;
-
-                    // todo.classList.add("todo");
-                    // todo.classList.add("unchecked");
-                    // todoNameInput.setAttribute("type", "text");
-                    // todoControls.classList.add("controls");
-                    // checkWrapper.classList.add("check-wrapper");
-                    // todoNameInput.setAttribute("placeholder", "Todo : ");
-                    // todoDescriptionTextarea.setAttribute("placeholder", "Description");
-                    // check.type = "checkbox";
-                    // label.innerText = "Done!";
-
-                    // id = `check_${Math.floor(Math.random() * 1e6)}`;
-                    // for (let todoElem of todos)
-                    //     while (todoElem.querySelector(`#${id}`))
-                    //         id = `check_${Math.floor(Math.random() * 1e6)}`;
-                    // check.id = id;
-                    // label.setAttribute("for", id)
-
-                    // todo.append(todoNameInput);
-                    // todo.append(todoDescriptionTextarea);
-                    // todoControls.append(checkWrapper);
-                    // checkWrapper.append(check);
-                    // checkWrapper.append(label);
-                    // todoControls.append(deleteTodo);
-                    // todo.append(todoControls);
-                    // thingsSubContainer.append(todo);
-                    // todo.scrollIntoView({ block : "center"});
-
-                    // todoNameInput.focus();
-                    // todos.push(todo);
-
-                    // todoNameInput.addEventListener("focusout", () => {
-                    //     todoNameH2.innerText = todoNameInput.value ? todoNameInput.value : "TODO";
-                    //     todoNameInput.replaceWith(todoNameH2);
-                    // });
-
-                    // todoNameH2.addEventListener("click", () => {
-                    //     if (!check.checked) {
-                    //         todoNameInput.value = todoNameH2.innerText;
-                    //         todoNameH2.replaceWith(todoNameInput);
-                    //         todoNameInput.focus();
-                    //     }
-                    // });
-
-                    // todoDescriptionTextarea.addEventListener("focusout", () => {
-                    //     todoDescriptionParag.innerText = todoDescriptionTextarea.value;
-                    //     todoDescriptionTextarea.replaceWith(todoDescriptionParag);
-                    // });
-
-                    // todoDescriptionParag.addEventListener("click", () => {
-                    //     if (!check.checked) {
-                    //         todoDescriptionTextarea.value = todoDescriptionParag.innerText;
-                    //         todoDescriptionParag.replaceWith(todoDescriptionTextarea);
-                    //         todoDescriptionTextarea.focus();
-                    //     }
-                    // });
-
-                    // check.addEventListener("click", () => {
-                    //     todo.classList.toggle("checked");
-                    //     todo.classList.toggle("unchecked");
-                    //     todo.parentElement.removeChild(todo);
-                    //     if (todo.classList.contains("checked")) {
-                    //         thingsSubContainer.append(todo);
-                    //     }
-                    //     else {
-                    //         thingsSubContainer.prepend(todo);
-                    //     }
-                    //     todo.scrollIntoView({ block : "center", behavior : "smooth" });
-                    // });
-
-                    // deleteTodo.addEventListener("click", () => {
-                    //     deleteModalObj.delete_element(todoNameH2.innerText, todo, thingsContainer, todos);
-                    // });
-
-                    // document.addEventListener("keydown", event => {
-                    //     if (event.key == "Enter" && document.activeElement == todoNameInput)
-                    //         document.activeElement.blur();
-                    // })
-                    console.log("shalom");
+                    console.log("hi");
                 });
 
                 addFolderDiv.replaceWith(folderContainer);
@@ -176,17 +88,20 @@ export const thingsCounterObj = (
 
                 deleteFolder.addEventListener("click", () => {
                     deleteModalObj.delete_element(folderName.innerText, folderContainer, thingsContainer, folders);
+                    console.log(folders);
                 })
 
                 enterFolder.addEventListener("click", () => {
                     thingsContainer.innerHTML = '';
                     thingsContainer.append(thingsSubContainer);
-                    thingsContainer.append(footer);
+                    thingsContainer.parentElement.append(footer);
                 });
             });
         }
 
         function append_to_element(element) {
+            thingsContainer.innerHTML = '';
+            thingsContainer.append(foldersContainer);
             element.innerHTML = '';
             element.append(thingsContainer);
         }

@@ -54,6 +54,7 @@ export const todoObj = (
                 footerGoBack.addEventListener("click", () => {
                     todoContainer.innerHTML = '';
                     todoContainer.append(foldersContainer);
+                    todoContainer.parentElement.removeChild(footer);
                 });
 
                 footerAdd.addEventListener("click", () => {
@@ -157,15 +158,11 @@ export const todoObj = (
                     inputName.type = "text";
                     inputName.value = folderName.innerText;
 
-                    // folderContainer.removeChild(folderName);
-                    // folderContainer.append(inputName);
                     folderName.replaceWith(inputName);
                     inputName.focus();
 
                     inputName.addEventListener("focusout", () => {
                         folderName.innerText = inputName.value ? inputName.value : "folder";
-                        // folderContainer.removeChild(inputName);
-                        // folderContainer.append(folderName);
                         inputName.replaceWith(folderName);
                     });
 
@@ -182,12 +179,14 @@ export const todoObj = (
                 enterFolder.addEventListener("click", () => {
                     todoContainer.innerHTML = '';
                     todoContainer.append(todosContainer);
-                    todoContainer.append(footer);
+                    todoContainer.parentElement.append(footer);
                 });
             });
         }
 
         function append_to_element(element) {
+            todoContainer.innerHTML = '';
+            todoContainer.append(foldersContainer);
             element.innerHTML = '';
             element.append(todoContainer);
         }

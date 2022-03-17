@@ -10,14 +10,9 @@ body {
     font-family: Helvetica;
 }
 
-/* .main-section {
-    position: relative;
-} */
-
-/* .nav-bar {
-    position: relative;
-    margin-bottom: 100px;
-} */
+.main-section {
+    min-height: calc(100vh - 100px);
+}
 
 .nav-bar ul {
     position: relative;
@@ -68,6 +63,144 @@ body {
 
 #focused:active {
     background: rgb(195, 218, 143);
+}
+
+/* FOLDERS */
+
+.folders {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 50px;
+}
+
+.folder {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.folder .enter-folder {
+    width: 75px;
+    height: 75px;
+    background-image: url("images/folder.png");
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.folder .enter-folder:hover {
+    background-color: rgb(245, 195, 195);
+}
+
+.folder .enter-folder:active {
+    background-color: rgb(235, 185, 183);
+    transform: scale(.975);
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    background-image: url("images/delete.png");
+    background-size: cover;
+    border: none;
+    z-index: 1;
+}
+
+.delete-button:hover {
+    filter: saturate(500%);
+}
+
+.delete-button:active {
+    filter: invert(10%);
+    transform: scale(.95);
+}
+
+.folder input[type="text"], .folder p {
+    text-align: center;
+    width: 100px;
+    margin-top: 5px;
+    padding: 5px;
+    background: rgb(188, 215, 255);
+    border: none;
+    border-radius: 5px;
+}
+
+.folder p {
+    overflow-wrap:break-word;
+}
+
+.add-folder button {
+    width: 75px;
+    height: 75px;
+    background-image: url("images/add_folder.png");
+    background-size: cover;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-folder button:hover {
+    background-color: rgb(235, 202, 183);
+}
+
+.add-folder button:active {
+    background-color: rgb(223, 186, 165);
+    transform: scale(.975);
+}
+
+/* FOOTER */
+
+.footer {
+    /* position: sticky; */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: rgb(245, 123, 107);
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.footer .add-todo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("images/add.png");
+    background-size: cover;
+}
+
+.footer .add-todo:hover {
+    filter: saturate(200%);
+}
+
+.footer .add-todo:active {
+    filter: invert(10%);
+    transform: scale(.975);
+}
+
+.footer .go-back {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("images/back-arrow.png");
+    background-size: cover;
+}
+
+.footer .go-back:hover {
+    filter: saturate(200%);
+}
+
+.footer .go-back:active {
+    filter: invert(10%);
+    transform: scale(.975);
 }
 
 /* MODAL */
@@ -159,6 +292,10 @@ body {
 /* -.- */
 
 @media screen and (max-width: 500px) {
+    .main-section {
+        min-height: 100vh;
+    }
+
     .nav-bar button {
         font-size: .75rem;
         width: auto;
@@ -176,5 +313,19 @@ body {
         border-radius: 5px;
         width: 300px;
         gap: 5px;
+    }
+
+    .folders {
+        gap: 20px;
+    }
+
+    .footer .add-todo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer .go-back {
+        width: 50px;
+        height: 50px;
     }
 }
