@@ -23,6 +23,10 @@
         pencil.png : <a href="https://www.flaticon.com/free-icons/pencil" title="pencil icons">Pencil icons created by Freepik - Flaticon</a>
         plus.png : <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a>
         minus.png : <a href="https://www.flaticon.com/free-icons/minus" title="minus icons">Minus icons created by Freepik - Flaticon</a>
+        reset.png : <a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by Freepik - Flaticon</a>
+
+        right-arrow.png : <a href="https://www.flaticon.com/free-icons/next" title="next icons">Next icons created by Freepik - Flaticon</a>
+        down-arrow.png : rotated right-arrow.png
      -->
 </head>
 
@@ -39,38 +43,95 @@
         <div class="thing-container">
             <div class="things-sub-container">
                 <div class="thing">
-                    <div class="left">
+                    <div class="main-thing-content">
+                        <div class="inc-dec"><button class="plus"></button><span>100</span><button
+                                class="minus"></button></div>
                         <div class="title-wrapper">
-                            <h2>push ups, 10 each set</h2>
-                        </div>
-                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                            <h2 class="title">push up sets, 20 reps per set</h2>
                         </div>
                     </div>
-                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                    <button class="change-thing-button"></button>
+                    <div class="modify-thing">
+                        <button class="edit-thing"></button>
+                        <button class="reset-thing"></button>
+                        <button class="delete-thing"></button>
+                    </div>
                 </div>
                 <div class="thing">
-                    <div class="left">
+                    <div class="main-thing-content">
+                        <div class="inc-dec"><button class="plus"></button><span>8</span><button
+                                class="minus"></button></div>
                         <div class="title-wrapper">
-                            <h2>Dumbbell floor presses, 10 each set, 30lb weight</h2>
-                        </div>
-                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                            <h2 class="title">This is a test</h2>
                         </div>
                     </div>
-                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                    <button class="change-thing-button"></button>
+                    <div class="modify-thing">
+                        <button class="edit-thing"></button>
+                        <button class="reset-thing"></button>
+                        <button class="delete-thing"></button>
+                    </div>
                 </div>
                 <div class="thing">
-                    <div class="left">
+                    <div class="main-thing-content">
+                        <div class="inc-dec"><button class="plus"></button><span>1000</span><button
+                                class="minus"></button></div>
                         <div class="title-wrapper">
-                            <h2>cawfee</h2>
-                        </div>
-                        <div class="inc-dec"><button class="plus"></button><span>34</span><button class="minus"></button>
+                            <h2 class="title">Dumbbell Presses, 10 reps per set, 30lb weights</h2>
                         </div>
                     </div>
-                    <div class="modify-delete"><button class="edit"></button><button class="delete"></button></div>
+                    <button class="change-thing-button"></button>
+                    <div class="modify-thing">
+                        <button class="edit-thing"></button>
+                        <button class="reset-thing"></button>
+                        <button class="delete-thing"></button>
+                    </div>
+                </div>
+                <div class="thing">
+                    <div class="main-thing-content">
+                        <div class="inc-dec"><button class="plus"></button><span>23</span><button
+                                class="minus"></button></div>
+                        <div class="title-wrapper">
+                            <h2 class="title">Drink</h2>
+                        </div>
+                    </div>
+                    <button class="change-thing-button"></button>
+                    <div class="modify-thing">
+                        <button class="edit-thing"></button>
+                        <button class="reset-thing"></button>
+                        <button class="delete-thing"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="add-thing-modal">
+                <div class="add-thing-modal-content">
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        const changeButtons = [...document.querySelectorAll(".change-thing-button")].map(button => {
+            return { button, hidden : true }
+        });
+
+        changeButtons.forEach(buttonContainer => buttonContainer.button.addEventListener("click", () => {
+            let change;
+
+            change = buttonContainer.button.parentElement.querySelector(".modify-thing");
+            if (buttonContainer.hidden) {
+                change.style.display = "flex";
+                buttonContainer.button.style.backgroundImage = "url('images/down-arrow.png')";
+            }
+            else {
+                change.style.display = "none";
+                buttonContainer.button.style.backgroundImage = "url('images/right-arrow.png')";
+            }
+
+            console.log(buttonContainer.button.style.backgroundImage)
+            buttonContainer.hidden = !buttonContainer.hidden;
+        }));
+    </script>
 </body>
 
 </html>

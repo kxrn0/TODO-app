@@ -13,100 +13,107 @@
 }
 
 .thing {
-    width: 500px;
-    height: 120px;
     background: rgb(250, 203, 141);
+    width: 500px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.thing .main-thing-content {
     display: flex;
     justify-content: space-between;
+    padding: 15px;
+}
+
+.thing .main-thing-content .title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(226, 238, 185);
+    padding: 5px;
+    height: 90px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.thing .main-thing-content .title-wrapper .title {
+    overflow-wrap: break-word;
+    width: 200px;
+    font-size: 1.25rem;
+}
+
+.thing .modify-thing {
+    background: rgb(226, 238, 185);
     border-radius: 5px;
     padding: 10px;
+    display: none;
+    justify-content: space-around;
 }
 
-.thing .left {
-    display: flex;
-    gap: 10px;
-}
-
-.thing .left .title-wrapper {
-    height: 90px;
-    background: rgb(234, 238, 185);
-    align-self: center;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-}
-
-.thing .left .title-wrapper h2 {
-    overflow-wrap: break-word;
-    width: 150px;
-    padding: 5px;
-}
-
-.thing .inc-dec {
-    align-self: center;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.thing .inc-dec button {
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    background-size: cover;
-    border: none;
-    border-radius: 5px;
-}
-
-.thing .inc-dec .plus {
-    background-image : url("images/plus.png ");
-}
-
-.thing .inc-dec .minus {
-    background-image: url("images/minus.png");
-}
-
-.thing .inc-dec span {
-    background: rgb(227, 238, 212);
-    font-size: 1.5rem;
-    padding: 5px;
-    border-radius: 3px;
-}
-
-.thing .modify-delete {
-    align-self: center;
-    display: flex;
-    justify-content: space-between;
-    width: 100px;
-}
-
-.thing .modify-delete button {
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    background-size: cover;
-    border: none;
-    border-radius: 5px;
-}
-
-.thing .modify-delete .edit {
+.thing .modify-thing .edit-thing {
     background-image: url("images/pencil.png");
 }
 
-.thing .modify-delete .delete {
+.thing .modify-thing .reset-thing {
+    background-image: url("images/reset.png");
+}
+
+.thing .modify-thing .delete-thing {
     background-image: url("images/rubbish-bin.png");
 }
 
+.thing button {
+    background-color : transparent;
+    background-size: cover;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+}
+
 .thing button:hover {
-    background-color: rgb(10, 50, 100, .1);
+    background-color: rgb(10, 20, 100, .1);
 }
 
 .thing button:active {
-    background-color: rgb(0, 0, 100, .15);
-    transform: scale(.97);
+    background-color: rgb(20, 10, 120, .2);
+    transform: scale(.975);
+}
+
+.thing .change-thing-button {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+.thing .change-thing-button {
+    background-image: url("images/right-arrow.png");
+}
+
+.thing .main-thing-content .inc-dec {
+    align-self: center;
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.thing .main-thing-content .inc-dec .plus {
+    background-image: url("images/plus.png");
+}
+
+.thing .main-thing-content .inc-dec .minus {
+    background-image: url("images/minus.png");
+}
+
+.thing .main-thing-content .inc-dec span {
+    background-color: rgb(197, 248, 210);
+    border-radius: 3px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 5px;
 }
 
 @media screen and (max-width: 700px) {
@@ -118,24 +125,35 @@
         gap: 10px;
     }
 
-    .thing .left .title-wrapper {
-        width: 120px;
-        height: 80px;
+    .thing {
+        width: 300px;
+    }
+
+    .thing .main-thing-content {
+        padding: 10px;
+    }
+    
+    .thing .main-thing-content .title-wrapper .title {
+        width: 100px;
         font-size: 1rem;
     }
-
-    .thing {
-        flex-direction: column;
-        height: auto;
+    
+    .thing button {
+        width: 25px;
+        height: 25px;
     }
-
-    .thing .left {
-        justify-content: space-around;
+    
+    .thing .change-thing-button {
+        width: 15px;
+        height: 15px;
     }
-
-    .thing .modify-delete {
-        margin-top: 15px;
-        width: 100%;
-        justify-content: space-around;
+    
+    .thing .main-thing-content .inc-dec {
+        width: 150px;
+    }
+    
+    .thing .main-thing-content .inc-dec span {
+        font-size: 1.25rem;
+        padding: 5px;
     }
 }
