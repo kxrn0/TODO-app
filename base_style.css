@@ -82,7 +82,7 @@ body {
     position: relative;
 }
 
-.folder .enter-folder {
+.enter-folder {
     width: 75px;
     height: 75px;
     background-image: url("images/folder.png");
@@ -91,11 +91,11 @@ body {
     border-radius: 5px;
 }
 
-.folder .enter-folder:hover {
+.enter-folder:hover {
     background-color: rgb(245, 195, 195);
 }
 
-.folder .enter-folder:active {
+.enter-folder:active {
     background-color: rgb(235, 185, 183);
     transform: scale(.975);
 }
@@ -249,7 +249,7 @@ body {
     overflow-wrap: break-word;
 }
 
-.modal-content .modal-buttons {
+.modal-buttons {
     width: 100%;
     padding: 5px;
     display: flex;

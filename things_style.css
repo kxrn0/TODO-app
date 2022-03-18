@@ -25,7 +25,7 @@
     padding: 15px;
 }
 
-.thing .main-thing-content .title-wrapper {
+.main-thing-content .title-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,13 +36,13 @@
     border-radius: 5px;
 }
 
-.thing .main-thing-content .title-wrapper .title {
+.main-thing-content .title-wrapper .title {
     overflow-wrap: break-word;
     width: 200px;
     font-size: 1.25rem;
 }
 
-.thing .modify-thing {
+.modify-thing {
     background: rgb(226, 238, 185);
     border-radius: 5px;
     padding: 10px;
@@ -50,47 +50,50 @@
     justify-content: space-around;
 }
 
-.thing .modify-thing .edit-thing {
+.edit-thing {
     background-image: url("images/pencil.png");
 }
 
-.thing .modify-thing .reset-thing {
+.reset-thing {
     background-image: url("images/reset.png");
 }
 
-.thing .modify-thing .delete-thing {
+.delete-thing {
     background-image: url("images/rubbish-bin.png");
 }
 
-.thing button {
+.thing-container button {
     background-color : transparent;
     background-size: cover;
     border: none;
-    width: 35px;
-    height: 35px;
     border-radius: 3px;
 }
 
-.thing button:hover {
+.thing button {
+    width: 35px;
+    height: 35px;
+}
+
+.thing-container button:hover {
     background-color: rgb(10, 20, 100, .1);
 }
 
-.thing button:active {
+.thing-container button:active {
     background-color: rgb(20, 10, 120, .2);
     transform: scale(.975);
 }
 
-.thing .change-thing-button {
+.things-sub-container .thing .change-thing-button {
     width: 20px;
     height: 20px;
     margin: 5px;
 }
 
-.thing .change-thing-button {
+.change-thing-button {
     background-image: url("images/right-arrow.png");
 }
 
-.thing .main-thing-content .inc-dec {
+.inc-dec {
     align-self: center;
     width: 250px;
     display: flex;
@@ -98,15 +101,15 @@
     align-items: center;
 }
 
-.thing .main-thing-content .inc-dec .plus {
+.plus {
     background-image: url("images/plus.png");
 }
 
-.thing .main-thing-content .inc-dec .minus {
+.minus {
     background-image: url("images/minus.png");
 }
 
-.thing .main-thing-content .inc-dec span {
+.inc-dec span {
     background-color: rgb(197, 248, 210);
     border-radius: 3px;
     font-size: 1.5rem;
@@ -114,6 +117,170 @@
     align-items: center;
     justify-items: center;
     padding: 5px;
+}
+
+.add-thing-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(148, 193, 245, 0.5);
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+
+    /* display: none; */
+}
+
+.add-thing-modal-content {
+    width: 500px;
+    background: rgb(74, 179, 240);
+    margin: 100px auto;
+    padding: 10px;
+    font-size: 1.35rem;
+    border-radius: 10px;
+}
+
+.main-modal-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.main-modal-content .left {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-content {
+    padding: 10px;
+}
+
+.label-content input {
+    background: rgb(249, 252, 223);
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.advanced-modal-content {
+    display: none; 
+    flex-direction: column;
+}
+
+.advanced-modal-content input[type="tel"] {
+    width: 50px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.advanced-modal-content .inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.advanced-modal-content .left-portion, .advanced-modal-content .rigth-portion {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.advanced-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.advanced-wrapper .advanced-configurations {
+    width: 20px;
+    height: 20px;
+    align-self: flex-end;
+    background-image: url("images/right-arrow.png");
+}
+
+.main-modal-content .save {
+    background: rgb(180, 255, 163);
+    align-self: flex-end;
+    width: 100px;
+    height: 35px;
+}
+
+.main-modal-content .save:hover {
+    background: rgb(149, 231, 141);
+}
+
+.main-modal-content .save:active {
+    background: rgb(141, 221, 134);
+}
+
+.colors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview {
+    width: 300px;
+    height: 75px;
+    background: rgb(250, 203, 141);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.preview .line {
+    width: 100px;
+    height: 10px;
+    align-self: center;
+    background: rgb(140, 149, 158);
+    border-radius: 5px;
+}
+
+.preview .text-preview {
+    width: 100px;
+    height: 40px;
+    background: rgb(226, 238, 185);
+    align-self: center;
+    border-radius: 5px;
+}
+
+.color-inputs {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+}
+
+.color-inputs input[type="color"] {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.main-color-wrapper, .bg-text-color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-color-wrapper .color-input-wrapper, .bg-text-color .color-input-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #facb8d;
+}
+
+.main-color-wrapper .color-input-wrapper {
+    background-color: #facb8d;
+}
+
+.bg-text-color .color-input-wrapper {
+    background-color: #e2eeb9;
 }
 
 @media screen and (max-width: 700px) {
@@ -129,11 +296,11 @@
         width: 300px;
     }
 
-    .thing .main-thing-content {
+    .main-thing-content {
         padding: 10px;
     }
     
-    .thing .main-thing-content .title-wrapper .title {
+    .main-thing-content .title-wrapper .title {
         width: 100px;
         font-size: 1rem;
     }
@@ -143,17 +310,100 @@
         height: 25px;
     }
     
-    .thing .change-thing-button {
+    .change-thing-button {
         width: 15px;
         height: 15px;
     }
     
-    .thing .main-thing-content .inc-dec {
+    .inc-dec {
         width: 150px;
     }
     
-    .thing .main-thing-content .inc-dec span {
+    .inc-dec span {
         font-size: 1.25rem;
         padding: 5px;
+    }
+
+    /* ------------------------------ */
+
+    .add-thing-modal-content {
+        width: 300px;
+        margin: 50px auto;
+        padding: 5px;
+        font-size: 1rem; 
+    }
+
+    .label-content {
+        padding: 5px;
+    }
+
+    .label-content input {
+        padding: 3px;
+        width: 100px;
+    }
+
+    .advanced-modal-content input[type="tel"] {
+        width: 35px;
+    }
+
+    .advanced-modal-content .inputs {
+        margin: 10px;
+    }
+
+    .advanced-wrapper {
+        gap: 5px;
+    }
+
+    .advanced-wrapper .advanced-configurations {
+        width: 15px;
+        height: 15px;
+    }
+
+    .main-modal-content .save {
+        width: 50px;
+        height: 25px;
+    }
+
+    .preview {
+        width: 250px;
+        height: 75px;
+    }
+
+    .preview .line {
+        width: 75px;
+    }
+
+    .preview .text-preview {
+        width: 75px;
+    }
+
+    .color-inputs label {
+        display: block;
+        width: 100px;
+        margin-top: 10px;
+    }
+
+    .left-portion, .rigth-portion {
+        width: 100%;
+    }
+
+    .left-portion div, .rigth-portion div {
+        display: flex;
+        justify-content: space-around;
+        text-align: start;
+    }
+
+    .left-portion label, .rigth-portion label {
+        display: block;
+        width: 70px;
+    }
+
+    .left-portion input[type="tel"], .rigth-portion input[type="tel"] {
+        width: 50px;
+    }
+
+    .delete-button {
+        width: 15px;
+        height: 15px;
     }
 }
