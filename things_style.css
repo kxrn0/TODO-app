@@ -283,6 +283,15 @@
     background-color: #e2eeb9;
 }
 
+.temp-input {
+    background: rgb(238, 215, 185);
+    border-radius: 5px;
+    margin: 10px 5px;
+    border: none;
+    padding: 5px;
+    text-align: center;
+}
+
 @media screen and (max-width: 700px) {
     .thing-container {
         padding-top: 60px;
@@ -301,7 +310,7 @@
     }
     
     .main-thing-content .title-wrapper .title {
-        width: 100px;
+        width: 120px;
         font-size: 1rem;
     }
     
@@ -325,6 +334,10 @@
     }
 
     /* ------------------------------ */
+
+    .temp-input {
+        width: 100px;
+    }
 
     .add-thing-modal-content {
         width: 300px;

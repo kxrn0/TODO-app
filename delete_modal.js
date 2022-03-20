@@ -62,11 +62,6 @@ export const deleteModalObj = (
             modal.parentElement.removeChild(modal);
         }
 
-        document.addEventListener("click", event => {
-            if (!event.target.closest(".modal-content") && !event.target.closest(".delete-folder") && !event.target.closest(".controls > button") && elementToDelete)
-                close_modal();
-        });
-
         return { delete_element };
     }
 )();

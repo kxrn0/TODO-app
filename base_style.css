@@ -157,7 +157,6 @@ body {
 /* FOOTER */
 
 .footer {
-    /* position: sticky; */
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -263,28 +262,28 @@ body {
     border: none;
 }
 
-.yes-delete {
+.delete-modal .yes-delete {
     background: rgb(255, 151, 120);
 }
 
-.yes-delete:hover {
+.delete-modal .yes-delete:hover {
     background: rgb(250, 126, 120);
 }
 
-.yes-delete:active {
+.delete-modal .yes-delete:active {
     background: rgb(228, 115, 107);
     transform: scale(.975);
 }
 
-.no-delete {
+.delete-modal .no-delete {
     background: rgb(176, 230, 95);
 }
 
-.no-delete:hover {
+.delete-modal .no-delete:hover {
     background: rgb(136, 220, 90);
 }
 
-.no-delete:active {
+.delete-modal .no-delete:active {
     background: rgb(125, 210, 90);
     transform: scale(.975);
 }

@@ -26,4 +26,4 @@ navHabitTracker.addEventListener("click", () => {
     navHabitTracker.id = "focused";
 });
 
-//navTodo.click();
+navTodo.click();

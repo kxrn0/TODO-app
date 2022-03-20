@@ -58,22 +58,7 @@ export const thingsCounterObj = (
                 });
 
                 footerAdd.addEventListener("click", () => {
-                    /**
-                     * How should I proceed with this?
-                     * I think that I need to create  a modal component and load it up everytime I press the footerAdd button.
-                     * Whenever I load up the modal component, it will populate its fileds so that a new thing can be created 
-                     * even if the user only enters the label of the thing.
-                     * 
-                     * So, how would a new thing be created? do I need to call a function to set up the modal?
-                     * Whenever I press the footerAdd button the modal's fields are populated, then the modal is 
-                     * appended to thingsContainer. Once the modal is set up the user can fiddle with the parameters of the thing, 
-                     * and once they are happy with the result they can press the save button, which will create a new thing, and 
-                     * save it on the things array.
-                     * So there's a function on the modal object called load_modal(), it resets the fields of the modal, appends it 
-                     * to thignsContainer, and that's basically it.
-                     * I should add an event listener to the save button so that it saves a thing on the array of things.
-                     */
-                    creatorObj.load_modal(thingsContainer);
+                    creatorObj.load_modal(thingsContainer, thingsSubContainer, things);
                 });
 
                 addFolderDiv.replaceWith(folderContainer);
@@ -103,7 +88,6 @@ export const thingsCounterObj = (
 
                 deleteFolder.addEventListener("click", () => {
                     deleteModalObj.delete_element(folderName.innerText, folderContainer, thingsContainer, folders);
-                    console.log(folders);
                 })
 
                 enterFolder.addEventListener("click", () => {
@@ -127,9 +111,185 @@ export const thingsCounterObj = (
 
         init();
 
-        return { switch_to_things_counter }
+        return { switch_to_things_counter, things : thingsContainer }
     }
 )();
+
+function create_thing(name, startValue, resetValue, stepPlus, stepMinus, mainColor, textBgColor, array) {
+    const thingMarkup = document.createElement("div");
+    const mainContent = document.createElement("div");
+    const incDecContent = document.createElement("div");
+    const plus = document.createElement("button");
+    const countSpan = document.createElement("span");
+    const minus = document.createElement("button");
+    const titleContent = document.createElement("div");
+    const title = document.createElement("h2");
+    const changeButton = document.createElement("button");
+    const modifyContent = document.createElement("div");
+    const edit = document.createElement("button");
+    const reset = document.createElement("button");
+    const delet = document.createElement("button");
+    let count, advanced, thingObj, arrayOfThings;
+
+    thingMarkup.classList.add("thing");
+    mainContent.classList.add("main-thing-content");
+    incDecContent.classList.add("inc-dec");
+    plus.classList.add("plus");
+    minus.classList.add("minus");
+    titleContent.classList.add("title-wrapper");
+    title.classList.add("title");
+    changeButton.classList.add("change-thing-button");
+    modifyContent.classList.add("modify-thing");
+    edit.classList.add("edit-thing");
+    reset.classList.add("reset-thing");
+    delet.classList.add("delete-thing");
+
+    thingMarkup.append(mainContent);
+    thingMarkup.append(changeButton);
+    thingMarkup.append(modifyContent);
+    mainContent.append(incDecContent);
+    mainContent.append(titleContent);
+    incDecContent.append(plus);
+    incDecContent.append(countSpan);
+    incDecContent.append(minus);
+    titleContent.append(title);
+    modifyContent.append(edit);
+    modifyContent.append(reset);
+    modifyContent.append(delet);
+
+    startValue = Number(startValue);
+    resetValue = Number(resetValue);
+    stepPlus = Number(stepPlus);
+    stepMinus = Number(stepMinus);
+
+    count = startValue;
+    countSpan.innerText = count;
+    change_title(name);
+    advanced = false;
+    arrayOfThings = array;
+
+    thingMarkup.style.background = mainColor;
+    titleContent.style.background = textBgColor;
+    modifyContent.style.background = textBgColor;
+
+    title.addEventListener("click", () => {
+        const input = document.createElement("input");
+
+        input.setAttribute("type", "text");
+        input.classList.add("temp-input");
+        input.value = title.innerText;
+        title.replaceWith(input);
+        input.focus();
+
+        document.addEventListener("keydown", event => {
+            if (event.key == "Enter" && document.activeElement == input)
+                document.activeElement.blur();
+        });
+
+        input.addEventListener("focusout", () => {
+            change_title(input.value);
+            input.replaceWith(title);
+            thingObj.name = input.value;
+            name = input.value;
+        });
+    });
+
+    plus.addEventListener("click", () => {
+        count += stepPlus;
+        countSpan.innerText = count;
+    });
+
+    minus.addEventListener("click", () => {
+        count -= stepMinus;
+        countSpan.innerText = count;
+    });
+
+    changeButton.addEventListener("click", () => {
+        if (advanced) {
+            modifyContent.style.display = "none";
+            changeButton.style.backgroundImage = "url('images/right-arrow.png')";
+        }
+        else {
+            modifyContent.style.display = "flex";
+            changeButton.style.backgroundImage = "url('images/down-arrow.png')";
+        }
+
+        advanced = !advanced;
+    });
+
+    reset.addEventListener("click", () => {
+        count = resetValue;
+        countSpan.innerText = count;
+    });
+
+    edit.addEventListener("click", call_modal);
+
+    delet.addEventListener("click", () => {
+        deleteModalObj.delete_element(name, thingMarkup, thingsCounterObj.things, arrayOfThings);
+    });
+
+    function call_modal() {
+        creatorObj.edit_modal(thingObj);
+    }
+
+    function update(newName, newStart, newReset, newPlus, newMinus, newMainColor, newTextBgColor) {
+        name = newName;
+        startValue = Number(newStart);
+        resetValue = Number(newReset);
+        stepPlus = Number(newPlus);
+        stepMinus = Number(newMinus);
+        mainColor = newMainColor;
+        textBgColor = newTextBgColor;
+
+        change_title(newName);
+        countSpan.innerText = newStart;
+        count = Number(newStart);
+        thingMarkup.style.background = mainColor;
+        titleContent.style.background = textBgColor;
+        modifyContent.style.background = textBgColor;
+    }
+
+    function change_title(newName) {
+        title.innerText = newName ? newName : `Ux_z${Math.floor(Math.random() * 1e7) + 1e6}e`;
+        name = title.innerText;
+    }
+
+    function get_count() {
+        return count;
+    }
+
+    function get_name() {
+        return name;
+    }
+
+    function get_start() {
+        return startValue;
+    }
+
+    function get_reset() {
+        return resetValue;
+    }
+
+    function get_inc() {
+        return stepPlus;
+    }
+
+    function get_dec() {
+        return stepMinus;
+    }
+
+    function get_main_color() {
+        return mainColor
+    }
+
+    function get_text_bg_color() {
+        return textBgColor;
+    }
+
+    thingObj = { thingMarkup, update, get_count, get_name, get_start, get_reset, get_inc, get_dec, get_main_color, get_text_bg_color }
+
+    return thingObj;
+}
 
 const creatorObj = (
     () => {
@@ -174,7 +334,7 @@ const creatorObj = (
         const bgColorInputWrapper = document.createElement("div"); // .color-input-wrapper
         const bgColorInput = document.createElement("input");
         const bgColorLabel = document.createElement("label");
-        let advancedShown;
+        let advancedShown, container, thingsContainer, things, edibleThing;
 
         advancedShown = false;
         modal.classList.add("add-thing-modal");
@@ -242,7 +402,6 @@ const creatorObj = (
         labelContent.append(labelInput);
         advancedWrapper.append(advancedH3);
         advancedWrapper.append(advancedButton);
-
         advancedContent.append(advancedInputs);
         advancedContent.append(colors);
         advancedInputs.append(leftPortion);
@@ -286,15 +445,28 @@ const creatorObj = (
 
         bgColorInput.addEventListener("input", change_color);
 
-        closeButton.addEventListener("click", () => {
-            modal.parentElement.removeChild(modal);
-            close_advanced_options();
-            advancedShown = false;
+        closeButton.addEventListener("click", close_modal);
+
+        save.addEventListener("click", () => { 
+            if (!edibleThing) {
+                const thing = create_thing(labelInput.value, startInput.value, resetInput.value, incrementInput.value, decrementInput.value, mainColorInput.value, bgColorInput.value, things);
+                things.push(thing);
+                thingsContainer.append(thing.thingMarkup);
+            }
+            else {
+                edibleThing.update(labelInput.value, startInput.value, resetInput.value, incrementInput.value, decrementInput.value, mainColorInput.value, bgColorInput.value);
+                edibleThing = '';
+            }
+
+            close_modal(); 
         });
 
-        save.addEventListener("click", () => {
-            console.log("hi");
-        });
+        function close_modal() {
+            container.removeChild(modal);
+            close_advanced_options();
+            advancedShown = false;
+            edibleThing = '';
+        }
 
         function change_color() {
             mainColorInput.parentElement.style.background = mainColorInput.value;
@@ -308,7 +480,8 @@ const creatorObj = (
             advancedContent.style.display = "none";
         }
 
-        function load_modal(container) {
+        function load_modal(modalParent, thingsParent, thingsArray) {
+            labelInput.value = '';
             startInput.value = 0;
             resetInput.value = 0;
             decrementInput.value = 1;
@@ -317,8 +490,27 @@ const creatorObj = (
             bgColorInput.value = "#e2eeb9";
             change_color();
             
+            container = modalParent;
             container.append(modal);
+            thingsContainer = thingsParent;
+            things = thingsArray;
+            labelInput.focus();
         }
-        return { load_modal };
+
+        function edit_modal(thing) {
+            container.append(modal);
+            edibleThing = thing;
+
+            labelInput.value = edibleThing.get_name();
+            startInput.value = edibleThing.get_count();
+            resetInput.value = edibleThing.get_reset();
+            decrementInput.value = edibleThing.get_dec();
+            incrementInput.value = edibleThing.get_inc();
+            mainColorInput.value = edibleThing.get_main_color();
+            bgColorInput.value = edibleThing.get_text_bg_color();
+            change_color();
+        }
+
+        return { load_modal, edit_modal };
     }
 )();
