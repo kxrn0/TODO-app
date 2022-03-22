@@ -5,20 +5,91 @@
     font: inherit;
 }
 
+:root.light {
+    --switch-bg: rgb(190, 238, 122);
+    --switch-ballg: rgb(87, 87, 240);
+    --body-bg: rgb(194, 243, 227);
+    --nav-bg: rgb(233, 109, 92);
+    --nav-bar-button-bg: rgb(189, 255, 216);
+    --nav-bar-button-hover: rgb(168, 233, 190);
+    --nav-bar-button-active: rgb(154, 221, 190);
+    --nav-focused: rgb(241, 240, 163);
+    --nav-focused-hover: rgb(217, 228, 153);
+    --nav-focused-active: rgb(195, 218, 143);
+    --folder-name-bg: rgb(188, 215, 255);
+}
+
+:root.dark {
+    --switch-bg: rgb(21, 9, 133);
+    --switch-ballg: rgb(157, 48, 138);
+    --body-bg: rgb(3, 21, 55);
+    --nav-bg: rgb(158, 53, 53);
+    --nav-bar-button-bg: rgb(87, 159, 206);
+    --nav-bar-button-hover: rgb(71, 123, 179);
+    --nav-bar-button-active: rgb(61, 101, 162);
+    --nav-focused: rgb(138, 213, 240);
+    --nav-focused-hover: rgb(123, 192, 218);
+    --nav-focused-active: rgb(103, 175, 201);
+    --folder-name-bg: rgb(122, 136, 194);
+}
+
 body {
-    background: rgb(194, 243, 227);
+    background: var(--body-bg);
     font-family: Helvetica;
 }
+
+/* THEME SWITCH */
+
+#theme-switch-container {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background: var(--switch-bg);
+}
+
+#theme-switch-container input[type="checkbox"] {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+#theme-switch-container span {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    background: var(--switch-ballg);
+    transition: all .33s;
+    pointer-events: none;
+  }
+
+  #theme-switch-container input[type="checkbox"]:checked+span {
+    transform: translateX(40px);
+  }
+
+#theme-li {
+    position: absolute;
+    right: 10px;
+    align-self: center;
+}
+
+/* MAIN */
 
 .main-section {
     min-height: calc(100vh - 100px);
 }
 
+/* NAV BAR */
+
 .nav-bar ul {
     position: relative;
     display: flex;
     list-style: none;
-    background: rgb(233, 109, 92);
+    background: var(--nav-bg);
     position: fixed;
     width: 100%;
     top: 0;
@@ -33,36 +104,31 @@ body {
 .nav-bar button {
     width: 150px;
     padding: 10px 5px;
-    background: rgb(189, 255, 216);
+    background: var(--nav-bar-button-bg);
     border: none;
     border-radius: 5px;
 }
 
 .nav-bar button:hover {
-    background: rgb(168, 233, 190);
+    background: var(--nav-bar-button-hover);
 }
 
 .nav-bar button:active {
-    background: rgb(154, 221, 190);
+    background: var(--nav-bar-button-active);
     transform: scale(.99);
 }
 
-.nav-bar input[type="checkbox"] {
-    position: absolute;
-    right: 25px;
-}
-
 #focused {
-    background: rgb(241, 240, 163);
+    background: var(--nav-focused);
     padding: 12px 5px;
 }
 
 #focused:hover {
-    background: rgb(217, 228, 153);
+    background: var(--nav-focused-hover);
 }
 
 #focused:active {
-    background: rgb(195, 218, 143);
+    background: var(--nav-focused-active);
 }
 
 /* FOLDERS */
@@ -72,6 +138,7 @@ body {
     flex-wrap: wrap;
     padding: 10px;
     gap: 50px;
+    margin-bottom: 50px;
 }
 
 .folder {
@@ -85,6 +152,7 @@ body {
 .enter-folder {
     width: 75px;
     height: 75px;
+    background-color: transparent;
     background-image: url("images/folder.png");
     background-size: cover;
     border: none;
@@ -127,7 +195,7 @@ body {
     width: 100px;
     margin-top: 5px;
     padding: 5px;
-    background: rgb(188, 215, 255);
+    background: var(--folder-name-bg);
     border: none;
     border-radius: 5px;
 }
@@ -139,6 +207,7 @@ body {
 .add-folder button {
     width: 75px;
     height: 75px;
+    background-color: transparent;
     background-image: url("images/add_folder.png");
     background-size: cover;
     border: none;
@@ -160,7 +229,7 @@ body {
     position: fixed;
     width: 100%;
     bottom: 0;
-    background: rgb(245, 123, 107);
+    background: var(--nav-bg);
     display: flex;
     justify-content: space-around;
     padding: 5px;
@@ -326,5 +395,25 @@ body {
     .footer .go-back {
         width: 50px;
         height: 50px;
+    }
+
+    #theme-switch-container {
+        width: 40px;
+        height: 20px;
+        border-radius: 10px;
+    }
+    
+    #theme-switch-container span {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+      }
+    
+      #theme-switch-container input[type="checkbox"]:checked+span {
+        transform: translateX(20px);
+      }
+      #theme-li {
+        right: 5px;
     }
 }

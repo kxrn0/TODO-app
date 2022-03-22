@@ -1,3 +1,23 @@
+:root.light {
+    --modal-bg: rgb(148, 193, 245, 0.5);
+    --modal-content-bg: rgb(74, 179, 240);
+    --color: black;
+    --save-bg: rgb(180, 255, 163);
+    --save-bg-hover: rgb(149, 231, 141);
+    --save-bg-active: rgb(141, 221, 134);
+    --input-bg: antiquewhite;
+}
+
+:root.dark {
+    --modal-bg: rgba(76, 130, 158, 0.5);
+    --modal-content-bg: rgb(16, 23, 82);
+    --color: azure;
+    --save-bg: rgb(0, 33, 182);
+    --save-bg-hover: rgb(7, 31, 136);
+    --save-bg-active: rgb(10, 30, 118);
+    --input-bg: rgb(69, 111, 184);
+}
+
 .thing-container {
     position: relative;
     padding-top: 100px;
@@ -74,11 +94,11 @@
     height: 35px;
 }
 
-.thing-container button:hover {
+.thing-container .things-sub-container button:hover {
     background-color: rgb(10, 20, 100, .1);
 }
 
-.thing-container button:active {
+.thing-container .things-sub-container button:active {
     background-color: rgb(20, 10, 120, .2);
     transform: scale(.975);
 }
@@ -123,17 +143,16 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(148, 193, 245, 0.5);
+    background: var(--modal-bg);
+    color: var(--color);
     z-index: 2;
     width: 100%;
     height: 100vh;
-
-    /* display: none; */
 }
 
 .add-thing-modal-content {
     width: 500px;
-    background: rgb(74, 179, 240);
+    background: var(--modal-content-bg);
     margin: 100px auto;
     padding: 10px;
     font-size: 1.35rem;
@@ -156,7 +175,8 @@
 }
 
 .label-content input {
-    background: rgb(249, 252, 223);
+    background: var(--input-bg);
+    color: var(--color);
     padding: 5px;
     border-radius: 5px;
     width: 200px;
@@ -169,7 +189,8 @@
 
 .advanced-modal-content input[type="tel"] {
     width: 50px;
-    background-color: antiquewhite;
+    background-color: var(--input-bg);
+    color: var(--color);
     border-radius: 5px;
     text-align: center;
 }
@@ -200,18 +221,19 @@
 }
 
 .main-modal-content .save {
-    background: rgb(180, 255, 163);
+    background: var(--save-bg);
+    color: var(--color);
     align-self: flex-end;
     width: 100px;
     height: 35px;
 }
 
 .main-modal-content .save:hover {
-    background: rgb(149, 231, 141);
+    background: var(--save-bg-hover);
 }
 
 .main-modal-content .save:active {
-    background: rgb(141, 221, 134);
+    background: var(--save-bg-active);
 }
 
 .colors {

@@ -1,3 +1,48 @@
+/* :root.light {
+    --unchecked-bg: rgb(193, 206, 236);
+    --unchecked-h2-bg: rgb(169, 243, 243);
+    --color: black;
+    --description-p: rgb(233, 241, 227);
+}
+
+:root.dark {
+    --unchecked-bg: rgb(57, 81, 136);
+    --unchecked-h2-bg: rgb(7, 21, 46);
+    --color: azure;
+    --description-p: rgb(21, 23, 70);
+} */
+
+/* 
+    I need one set of colors for when the theme is set to dark, and another for when it's set to light. But then, how will I handle
+    when the todo is checked/unchecked? I can set up colors for when it's light and for when it's dark, but how about when it's light 
+    and checked, or dark and checked? How do I differentiate on those cases?
+    I will probably have to use javaScript.
+
+*/
+
+:root.light {
+    --thing-bg: rgb(193, 206, 236);
+    --thing-h2-bg: rgb(169, 243, 243);
+    --color: black;
+    --description-p: rgb(233, 241, 227);
+    --checked-thing-bg: rgb(187, 199, 207);
+    --checked-description-p: azure;
+}
+
+:root.dark {
+    --thing-bg: rgb(57, 81, 136);
+    --thing-h2-bg: rgb(7, 21, 46);
+    --color: azure; 
+    --description-p: rgb(21, 23, 70);
+    --checked-thing-bg: rgb(130, 148, 160);
+    --checked-description-p: rgb(232, 210, 210);
+}
+
+/* 
+    I think I should use general sibling combinator to change the color of the thing when it's checked, depending on the
+    theme.
+*/
+
 .todo-container {
     position: relative;
     padding-top: 100px;
@@ -46,10 +91,10 @@
 }
 
 .todo p {
-    background: rgb(233, 241, 227);
     min-height: 3rem;
     text-align: start;
     overflow-wrap: break-word;
+    color: var(--color);
 }
 
 .todo textarea {
@@ -109,24 +154,35 @@
     font-size: 1.25rem;
 }
 
+.unchecked p {
+    background: var(--description-p);
+}
+
+.checked p {
+    background: var(--checked-description-p);
+    color: black;
+}
+
 /* ... */
 
 .unchecked {
-    background: rgb(193, 206, 236);
+    background: var(--thing-bg);
 }
 
 .unchecked h2 {
-    background: rgb(169, 243, 243);
+    background: var(--thing-h2-bg);
+    color: var(--color);
 }
 
 .unchecked textarea {
-    background: rgb(233, 241, 227);
+    background: var(--description-p);
+    color: var(--color);
 }
 
 /* ... */
 
 .checked {
-    background: rgb(187, 199, 207);
+    background: var(--checked-thing-bg);
 }
 
 .checked h2 {

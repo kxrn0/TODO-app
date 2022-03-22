@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="base_style.css">
     <link rel="stylesheet" href="todo_style.css">
     <link rel="stylesheet" href="things_style.css">
+    <script src="load_themes.js" defer></script>
     <script src="main.js" type="module" defer></script>
     <title>Todo App</title>
 
@@ -24,6 +25,8 @@
         plus.png : <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a>
         minus.png : <a href="https://www.flaticon.com/free-icons/minus" title="minus icons">Minus icons created by Freepik - Flaticon</a>
         reset.png : <a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by Freepik - Flaticon</a>
+        light.png : <a href="https://www.flaticon.com/free-icons/light-dark" title="light dark icons">Light dark icons created by Freepik - Flaticon</a>
+        dark.png : <a href="https://www.flaticon.com/free-icons/light-dark" title="light dark icons">Light dark icons created by Freepik - Flaticon</a>
 
         right-arrow.png : <a href="https://www.flaticon.com/free-icons/next" title="next icons">Next icons created by Freepik - Flaticon</a>
         down-arrow.png : rotated right-arrow.png
@@ -36,14 +39,10 @@
             <li><button class="nav-todo">TODO</button></li>
             <li><button class="nav-thing-counter">THING COUNTER</button></li>
             <li><button class="nav-habit-tracker">HABIT TRACKER</button></li>
-            <li><input type="checkbox"></li>
+            <li id="theme-li"><div id="theme-switch-container"><input type="checkbox" id="theme-switch"><span></span></div></li>
         </ul>
     </nav>
     <main class="main-section">
-        <div class="thing-container">
-            <div class="things-sub-container">
-            </div>
-        </div>
     </main>
 </body>
 
